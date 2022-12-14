@@ -67,7 +67,7 @@ const populateResults = async (e) => {
   if (query.length > 2) {
     spinner.classList.add("show")
     resultGrid.removeEventListener('click', changeSong)
-    const response = await fetch(`https://muzikv0-backend.vaib215.repl.co/result/?query=${query}`)
+    const response = await fetch(`https://web-production-f296.up.railway.app/result/?query=${query}`)
     const result = await response.json()
     addToResults(result)
     localStorage.setItem('results', JSON.stringify(result))
