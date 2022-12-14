@@ -17,7 +17,7 @@ const changeSongInfo = (res) => {
   songInfo.append(songName)
   const artistName = document.createElement('small')
   artistName.className = "text-indigo-500"
-  artistName.innerHTML = res.singers.slice(0, 30) + (res.singers.length > 30 ? '...' : '')
+  artistName.innerHTML = res.singers.slice(0, 25) + (res.singers.length > 25 ? '...' : '')
   songInfo.append(artistName)
   totTime.innerHTML = (+res.duration / 60).toFixed(0).toString() + ":" + (+(+res.duration % 60).toFixed(0)).toString().padStart(2, '0')
 }
@@ -44,7 +44,7 @@ const createResult = (posterUrl, songName, artistName, duration, index) => {
     </div>
     <b>${songName}</b>
     <div class="flex justify-between">
-      <small>${artistName.slice(0, 30) + (artistName.length > 30 ? '...' : '')}</small>
+      <small>${artistName.slice(0, 25) + (artistName.length > 25 ? '...' : '')}</small>
       <small>${+(duration / 60).toFixed(0).toString() + ":" + (+(duration % 60).toFixed(0)).toString().padStart(2, '0')}</small>
     </div>
 `
@@ -55,7 +55,7 @@ const addToResults = arr => {
   spinner.classList.remove("show")
   arr.forEach((result, index) => {
     const searchResult = document.createElement('div')
-    searchResult.className = "result h-auto flex flex-col p-2 rounded-lg overflow-hidden bg-gray-200 text-indigo-800"
+    searchResult.className = "result h-auto flex flex-col p-2 rounded-lg overflow-hidden bg-gray-200 text-3xl lg:text-lg text-indigo-800"
     searchResult.innerHTML = createResult(result.image, result.song, result.singers, result.duration, index)
     resultGrid.append(searchResult)
     resultGrid.addEventListener('click', changeSong)

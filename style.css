@@ -1,6 +1,3 @@
-.title{
-  font-size: 24px;
-}
 .player {
   position: fixed;
   bottom: 0;
@@ -52,11 +49,6 @@
   animation: ld-bounce-in 1.5s infinite linear;
   animation-fill-mode: forwards;
   transform: matrix(0.01,0,0,0.01,0,0);
-}
-
-#seek {
-  width: 70vw;
-  max-width: 500px;
 }
 
 @keyframes ld-bounce-in{
